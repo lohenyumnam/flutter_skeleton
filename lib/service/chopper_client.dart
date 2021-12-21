@@ -1,5 +1,5 @@
 import 'package:chopper/chopper.dart';
-import 'package:flutter_skeleton/product.model.dart';
+import 'package:flutter_skeleton/product/data/model/product.model.dart';
 import 'chopper_services/api_service.dart';
 import 'generic_json_convertor.dart';
 

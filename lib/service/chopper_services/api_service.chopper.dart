@@ -22,4 +22,12 @@ class _$APIService extends APIService {
     final $request = Request('GET', $url, client.baseUrl);
     return client.send<List<ProductModel>, ProductModel>($request);
   }
+
+  @override
+  Future<Response<List<ProductModel>>> getProductsByCategory(
+      String categoryName) {
+    final $url = '/products/category/${categoryName}';
+    final $request = Request('GET', $url, client.baseUrl);
+    return client.send<List<ProductModel>, ProductModel>($request);
+  }
 }
