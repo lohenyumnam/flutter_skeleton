@@ -1,6 +1,10 @@
+import 'dart:developer';
+
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_skeleton/product/logic/cubit/product_cubit.dart';
+import 'package:flutter_skeleton/router/router.dart';
 
 class ProductBody extends StatelessWidget {
   const ProductBody({Key? key}) : super(key: key);
@@ -27,6 +31,13 @@ class ProductBody extends StatelessWidget {
             ),
             title: Text(product.title),
             subtitle: Text(product.description),
+            onTap: () async {
+              // AutoRouter.of(context).push(const ProductDetailsRoute());
+              final isWhat = await context.router
+                  .push<bool>(ProductDetailsRoute(title: product.title));
+
+              log(isWhat.toString());
+            },
           );
         },
       ),

@@ -1,13 +1,17 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_skeleton/router/router.dart';
 import 'package:logging/logging.dart';
 
 import 'app/app.dart';
 
 void main() {
   _setupLogging();
-  runApp(const App());
+
+  final _appRouter = AppRouter();
+
+  runApp(App(appRouter: _appRouter));
 }
 
 void _setupLogging() {
