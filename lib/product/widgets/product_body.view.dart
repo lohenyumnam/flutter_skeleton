@@ -32,11 +32,20 @@ class ProductBody extends StatelessWidget {
             title: Text(product.title),
             subtitle: Text(product.description),
             onTap: () async {
-              // AutoRouter.of(context).push(const ProductDetailsRoute());
-              final isWhat = await context.router
-                  .push<bool>(ProductDetailsRoute(title: product.title));
+              context.navigateTo(
+                ProfileTabRoute(children: [
+                  const ProfileRoute(),
+                  ProductDetailsRoute(
+                    title: product.title,
+                  ),
+                  const ProfileRoute(),
+                  ProductDetailsRoute(
+                    title: product.title,
+                  )
+                ]),
+              );
 
-              log(isWhat.toString());
+              // context.router.push(ProductDetailsRoute(title: product.title));
             },
           );
         },
